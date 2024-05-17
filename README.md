@@ -1,2 +1,3 @@
 # splash_bootanimation
-Script to build splash.img and boot animation.zip
+working with python 3 
+have to install Pillow via pip install Pillow
