@@ -17,7 +17,7 @@ from PIL import Image
 
 if __name__ == "__main__":
     directory = "./bootanimation/"
-    archivio = zipfile.ZipFile('bootanimation.zip', "w")
+    archivio = zipfile.ZipFile('bootanimation.zip', "w", allowZip64=False, compresslevel=zipfile.ZIP_STORED)
     for root, subdirs, files in os.walk(directory):
         for filename in files:
             print (filename)
@@ -28,7 +28,7 @@ if __name__ == "__main__":
                     newsize = (160, 128)
                     rgb_im = rgb_im.resize(newsize)
                     rgb_im.save(root + '/' + filename)
-                archivio.write(root + '/' + filename, arcname=root[16:] + '/' +filename, compress_type=zipfile.ZIP_DEFLATED)
+                archivio.write(root + '/' + filename, arcname=root[16:] + '/' +filename)
             else:
                 print('skipped ' + filename)
     archivio.close()
